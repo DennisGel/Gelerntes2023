@@ -1,5 +1,8 @@
+--Juli 2023
+
+
 -- Nutzen Sie die Datenbank ProjektDB,
--- um die folgenden Aufgaben zu lösen.
+-- um die folgenden Aufgaben zu lÃ¶sen.
 
 
 -- Aufgabe 2.1
@@ -22,7 +25,7 @@ ORDER BY m_nr
 -- Aufgabe 2.2
 --
 -- Schreiben Sie eine Abfrage, die alle Projekt-Aufgaben 
--- mit den zugehörigen Projekten kombiniert. Geben Sie die
+-- mit den zugehÃ¶rigen Projekten kombiniert. Geben Sie die
 -- Felder pr_nr, pr_name, m_nr und aufgabe aus. Sortieren 
 -- Sie die Ausgabe nach pr_nr aufsteigend und m_nr absteigend.
 --
@@ -48,7 +51,7 @@ ORDER BY pr_nr , m_nr DESC;
 -- Aufgabe 2.3
 --
 -- Erweitern Sie die Abfrage aus Aufgabe 2.2, indem Sie
--- zusätzlich noch den Nachnamen des Mitarbeiters im
+-- zusÃ¤tzlich noch den Nachnamen des Mitarbeiters im
 -- Ergebnis mit ausgeben.
 --
 --		pr_nr	pr_name	m_nr	m_name	aufgabe
@@ -66,7 +69,7 @@ ORDER BY pr_nr , m.m_nr DESC;
 -- Aufgabe 2.4
 --
 -- Erweitern Sie die Abfrage aus Augfgabe 2.3, indem Sie
--- zusätzlich noch den Namen der Abteilung des Mitarbeiters
+-- zusÃ¤tzlich noch den Namen der Abteilung des Mitarbeiters
 -- im Ergebnis anzeigen.
 --
 --		pr_nr	pr_name	m_nr	m_name	aufgabe			abt_name
@@ -105,7 +108,7 @@ WHERE pr_name='Merkur'
 -- Aufgabe 2.6
 --
 -- Nennen Sie Namen und Vornamen aller Projektleiter, deren 
--- Abteilung den Standort München hat.
+-- Abteilung den Standort MÃ¼nchen hat.
 --
 --		m_name		m_vorname
 --		Kaufmann	Brigitte            
@@ -115,13 +118,13 @@ FROM Mitarbeiter m
 		ON M.m_nr=a.m_nr
 	LEFT JOIN Abteilung ab
 		ON m.abt_nr=ab.abt_nr
-WHERE stadt='München' AND aufgabe='Projektleiter'
+WHERE stadt='MÃ¼nchen' AND aufgabe='Projektleiter'
 
 -- Aufgabe 2.7
 --
 -- Nennen Sie einmalig die Namen der Projekte, in denen die 
 -- Mitarbeiter arbeiten, die ein Gehalt von mindestens 
--- 5.000 € beziehen.
+-- 5.000 â‚¬ beziehen.
 --
 --		pr_name
 --		Apollo
@@ -154,7 +157,7 @@ WHERE g1.gehalt = g2.gehalt AND g1.m_nr<>g2.m_nr
 --
 -- Finden Sie die Personalnummer, die Projektnummer
 -- und die Aufgabe von Mitarbeitern aus, die die gleiche 
--- Aufgabe im gleichen Projekt ausführen.
+-- Aufgabe im gleichen Projekt ausfÃ¼hren.
 --
 --		m_nr	pr_nr	aufgabe
 --		25348	p2  	Sachbearbeiter
@@ -168,8 +171,8 @@ WHERE a1.aufgabe = a2.aufgabe AND a1.m_nr<>a2.m_nr AND a1.pr_nr=a2.pr_nr
 --
 -- Zeigen Sie alle Mitarbeiter der Abteilung 'a2' mit 
 -- Personalnummer und Name an und geben Sie dazu die vom 
--- Mitarbeiter getätigten Umsätze aus. Hat der Mitarbeiter 
--- noch keine Umsätze getätigt, soll in der Spalte Umsatz 
+-- Mitarbeiter getÃ¤tigten UmsÃ¤tze aus. Hat der Mitarbeiter 
+-- noch keine UmsÃ¤tze getÃ¤tigt, soll in der Spalte Umsatz 
 -- eine 0 angezeigt werden.
 --
 --		m_nr	m_name		umsatz
@@ -187,17 +190,17 @@ WHERE m.abt_nr='a2'
 
 -- Aufgabe 2.11
 --
--- Verändern Sie die Abfrage aus Aufgabe 2.10, indem Sie
--- jetzt alle Mitarbeiter anzeigen. Gruppieren Sie über
+-- VerÃ¤ndern Sie die Abfrage aus Aufgabe 2.10, indem Sie
+-- jetzt alle Mitarbeiter anzeigen. Gruppieren Sie Ã¼ber
 -- die Personalnummer und den Namen und geben Sie die Summe
--- der getätigten Umsätze aus. Wenn keine Umsätze getätigt
+-- der getÃ¤tigten UmsÃ¤tze aus. Wenn keine UmsÃ¤tze getÃ¤tigt
 -- wurden, soll weiterhin eine 0 erscheinen.
 --
 --		m_nr	m_name		umsatz
 --		2581	Kaufmann	100000
 --		9031	Meier		0
 --		10102	Huber		18501
---		18316	Müller		0
+--		18316	MÃ¼ller		0
 --		25348	Keller		187665
 --		28559	Mozer		0
 --		29346	Probst		0
@@ -210,13 +213,13 @@ GROUP BY m.m_nr,m.m_name
 
 -- Aufgabe 2.12
 --
--- Verändern Sie die Abfrage aus Aufgabe 2.11, indem Sie
--- nur die Mitarbeiter anzeigen, die noch keine Umsätze 
--- getätigt haben.
+-- VerÃ¤ndern Sie die Abfrage aus Aufgabe 2.11, indem Sie
+-- nur die Mitarbeiter anzeigen, die noch keine UmsÃ¤tze 
+-- getÃ¤tigt haben.
 --
 --		m_nr	m_name	umsatz
 --		9031	Meier	0
---		18316	Müller	0
+--		18316	MÃ¼ller	0
 --		28559	Mozer	0
 --		29346	Probst	0
 SELECT m.m_nr,m_name,ISNULL(SUM(umsatz),0) AS umsatz
@@ -230,12 +233,12 @@ HAVING SUM(umsatz) IS NULL
 -- Aufgabe 2.13
 --
 -- Finden Sie alle Mitarbeiter mit Personalnummer und
--- Namen, die in keinem Projekt als Sachbearbeiter tätig sind.
+-- Namen, die in keinem Projekt als Sachbearbeiter tÃ¤tig sind.
 --
 --		m_nr	m_name
 --		2581	Kaufmann
 --		10102	Huber
---		18316	Müller
+--		18316	MÃ¼ller
 
 
 SELECT  m_nr,m_name
