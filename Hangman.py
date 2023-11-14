@@ -13,6 +13,8 @@
 # sind alle Buchstaben erkannt: Lob ausgeben
 # - Maximale Anzahl an Versuchen: Wortlänge + 9
 
+#August2023
+
 import random
 
 
